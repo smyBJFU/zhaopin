@@ -830,16 +830,22 @@ class RecruitmentScraper:
 # ============ CSV 管理 ============
 
 def load_csv(csv_path):
-    """加载现有 CSV"""
+    """加载现有 CSV（自动尝试多种编码）"""
     if os.path.exists(csv_path):
-        try:
-            df = pd.read_csv(csv_path, encoding="utf-8-sig", dtype=str)
-            df = df.fillna("")
-            print(f"[*] 加载现有 CSV: {len(df)} 条记录")
-            return df
-        except Exception as e:
-            print(f"[WARN] 读取 CSV 失败: {e}，将新建")
-    return None
+        encodings = ["utf-8-sig", "utf-8", "gbk", "gb2312", "cp1252"]
+        for enc in encodings:
+            try:
+                df = pd.read_csv(csv_path, encoding=enc, dtype=str)
+                df = df.fillna("")
+                print(f"[*] 加载现有 CSV ({enc}): {len(df)} 条记录")
+                return df
+            except (UnicodeDecodeError, UnicodeError):
+                continue
+            except Exception as e:
+                print(f"[WARN] 读取 CSV ({enc}) 失败: {e}")
+                continue
+        print(f"[WARN] 无法解码 CSV 文件，将新建")
+        return None
 
 
 def merge_results(df, new_records):
