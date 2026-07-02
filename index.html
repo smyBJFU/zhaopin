@@ -3,614 +3,584 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2027届秋招公司累计汇总表</title>
+    <title>2027 届秋招信息汇总 - 2026-07-02</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                         "Microsoft YaHei", "Helvetica Neue", sans-serif;
+            background: #f5f7fa;
             padding: 20px;
-        }
-        .container {
-            max-width: 100%;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        h1 {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px 30px;
-            font-size: 20px;
-        }
-        .stats {
-            padding: 15px 30px;
-            background: #f8f9fa;
-            border-bottom: 1px solid #e9ecef;
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .stat-label {
-            color: #666;
-            font-size: 14px;
-        }
-        .stat-value {
-            font-weight: bold;
-            font-size: 16px;
             color: #333;
         }
-        .table-container {
+        .container { max-width: 1400px; margin: 0 auto; }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .stats-bar {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 12px 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            font-size: 14px;
+        }
+        .stat-card .num { font-size: 22px; font-weight: 700; }
+        .stat-card.high .num { color: #22c55e; }
+        .stat-card.medium .num { color: #eab308; }
+        .stat-card.low .num { color: #ef4444; }
+        .stat-card.total .num { color: #3b82f6; }
+        .legend {
+            display: flex; gap: 16px; margin-bottom: 16px;
+            font-size: 13px; align-items: center;
+        }
+        .legend-item { display: flex; align-items: center; gap: 4px; }
+        .table-wrap {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
             overflow-x: auto;
-            max-height: 70vh;
-            overflow-y: auto;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 14px;
-        }
-        thead {
-            position: sticky;
-            top: 0;
-            z-index: 10;
+            font-size: 13px;
+            min-width: 1100px;
         }
         th {
-            background: #4472C4;
-            color: white;
-            padding: 12px 10px;
-            text-align: center;
-            font-weight: bold;
-            border: 1px solid #3a5f9e;
+            background: #f8fafc;
+            color: #475569;
+            font-weight: 600;
+            padding: 10px 8px;
+            text-align: left;
+            border-bottom: 2px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 1;
             white-space: nowrap;
         }
         td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            vertical-align: middle;
-            line-height: 1.6;
+            padding: 8px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: top;
+            word-break: break-word;
+            line-height: 1.5;
         }
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        tr:hover {
-            background-color: #e8f4fd;
-        }
-        .company-name {
-            font-weight: bold;
-            color: #2c3e50;
-            white-space: nowrap;
-        }
-        .company-type {
-            text-align: center;
-            white-space: nowrap;
-        }
-        .credibility {
-            text-align: center;
-            font-weight: bold;
-            padding: 4px 8px;
-            border-radius: 4px;
-            white-space: nowrap;
-        }
-        .credibility-high {
-            background-color: #92D050;
-            color: #1a4d1a;
-        }
-        .credibility-medium {
-            background-color: #FFC000;
-            color: #664d00;
-        }
-        .credibility-low {
-            background-color: #FF6B6B;
-            color: white;
-        }
-        .date-col {
-            text-align: center;
-            white-space: nowrap;
-        }
-        .jobs-col {
-            max-width: 400px;
-        }
-        .link-col {
-            max-width: 350px;
-            word-break: break-all;
-        }
-        .link-col a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        .link-col a:hover {
-            text-decoration: underline;
-        }
-        .remark-col {
-            max-width: 300px;
-            color: #666;
-            font-size: 13px;
-        }
+        tr:hover td { background: #f0f9ff !important; }
+        tr:nth-child(even) td { background: #fafbfc; }
+        tr:nth-child(even):hover td { background: #f0f9ff !important; }
+        .cred-高 { color: #16a34a; font-weight: 500; }
+        .cred-中 { color: #ca8a04; font-weight: 500; }
+        .cred-低 { color: #dc2626; font-weight: 500; }
+        .cred-待核实 { color: #dc2626; font-weight: 500; }
+        a { color: #2563eb; text-decoration: none; }
+        a:hover { text-decoration: underline; }
         .footer {
-            padding: 15px 30px;
-            background: #f8f9fa;
-            border-top: 1px solid #e9ecef;
-            font-size: 13px;
-            color: #666;
+            margin-top: 24px;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
         }
-        .legend {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            border-radius: 3px;
+        .update-time { margin-left: 8px; color: #94a3b8; font-size: 12px; }
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            table { font-size: 12px; min-width: 900px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>📊 2027届秋招公司累计汇总表</h1>
-        
-        <div class="stats">
-            <div class="stat-item">
-                <span class="stat-label">总计公司数：</span>
-                <span class="stat-value">26家</span>
-            </div>
-            <div class="legend">
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #92D050;"></div>
-                    <span>高可信度</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #FFC000;"></div>
-                    <span>中可信度</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #FF6B6B;"></div>
-                    <span>低/待核实</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>序号</th>
-                        <th>公司名称</th>
-                        <th>公司类型</th>
-                        <th>招聘项目/批次</th>
-                        <th>计算机相关岗位</th>
-                        <th>招聘链接/地址</th>
-                        <th>截止时间</th>
-                        <th>工作地点</th>
-                        <th>信息来源</th>
-                        <th>信息可信度</th>
-                        <th>首次收录日期</th>
-                        <th>最近更新日期</th>
-                        <th>备注</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="text-align:center;">1</td>
-                        <td class="company-name">字节跳动</td>
-                        <td class="company-type">互联网大厂</td>
-                        <td>Seed大模型人才校招/前沿技术领域人才校招（提前批）</td>
-                        <td class="jobs-col">大模型算法、多模态算法、智能体研发、后端开发、前端开发、客户端开发、算法工程师、数据研发</td>
-                        <td class="link-col"><a href="https://jobs.bytedance.com/campus" target="_blank">https://jobs.bytedance.com/campus</a></td>
-                        <td>招满即止</td>
-                        <td>北京、上海、深圳、杭州、新加坡、圣何塞、西雅图</td>
-                        <td>字节跳动官网、牛客网</td>
-                        <td><span class="credibility credibility-high">高</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">官方渠道信息</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">2</td>
-                        <td class="company-name">阿里巴巴</td>
-                        <td class="company-type">互联网大厂</td>
-                        <td>阿里星顶尖人才计划（提前批）</td>
-                        <td class="jobs-col">基础模型算法、AI Infra、大模型应用、产业AI、计算架构、芯片研发、后端开发、前端开发</td>
-                        <td class="link-col"><a href="https://campus-talent.alibaba.com/activity/ali-star?lang=zh" target="_blank">https://campus-talent.alibaba.com/activity/ali-star?lang=zh</a></td>
-                        <td>待公布</td>
-                        <td>杭州、北京、上海、深圳</td>
-                        <td>阿里巴巴校招官网、高校就业网</td>
-                        <td><span class="credibility credibility-high">高</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">官方渠道信息</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">3</td>
-                        <td class="company-name">腾讯</td>
-                        <td class="company-type">互联网大厂</td>
-                        <td>青云计划（提前批）</td>
-                        <td class="jobs-col">大语言模型/NLP、多模态/视觉/语音、智能体、强化学习、搜索推荐、AI基础设施、系统与安全、AI数据工程</td>
-                        <td class="link-col"><a href="https://join.qq.com/qingyun.html" target="_blank">https://join.qq.com/qingyun.html</a></td>
-                        <td>待公布</td>
-                        <td>深圳、北京、上海</td>
-                        <td>腾讯校招官网</td>
-                        <td><span class="credibility credibility-high">高</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">官方渠道信息</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">4</td>
-                        <td class="company-name">百度</td>
-                        <td class="company-type">互联网大厂</td>
-                        <td>AIDU计划（提前批）</td>
-                        <td class="jobs-col">大模型算法、多模态算法、智能体、自动驾驶、AI异构计算、语音技术、后端开发、前端开发</td>
-                        <td class="link-col"><a href="https://talent.baidu.com/jobs/list" target="_blank">https://talent.baidu.com/jobs/list</a></td>
-                        <td>待公布</td>
-                        <td>北京、深圳</td>
-                        <td>新华网、百度官网</td>
-                        <td><span class="credibility credibility-high">高</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">官方渠道信息</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">5</td>
-                        <td class="company-name">拼多多</td>
-                        <td class="company-type">互联网大厂</td>
-                        <td>云弧计划/研发实习生（提前批）</td>
-                        <td class="jobs-col">大模型算法、AI Infra、服务端研发、Web前端、客户端研发、算法、网络安全</td>
-                        <td class="link-col"><a href="https://careers.pddglobalhr.com/campus" target="_blank">https://careers.pddglobalhr.com/campus</a></td>
-                        <td>2026-08-31</td>
-                        <td>上海</td>
-                        <td>牛客网、超级简历</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">部分信息来自第三方平台，建议官网核实</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">6</td>
-                        <td class="company-name">京东</td>
-                        <td class="company-type">互联网大厂</td>
-                        <td>TGT顶尖青年技术天才计划（提前批）</td>
-                        <td class="jobs-col">多模态大模型、空间与具身智能、机器学习、AI Infra、搜索推荐广告、高性能与云计算、安全、大数据</td>
-                        <td class="link-col"><a href="https://campus.jd.com" target="_blank">https://campus.jd.com</a></td>
-                        <td>待公布</td>
-                        <td>北京</td>
-                        <td>牛客网</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">部分信息来自第三方平台，建议官网核实</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">7</td>
-                        <td class="company-name">蚂蚁集团</td>
-                        <td class="company-type">金融科技</td>
-                        <td>蚂蚁星PlanA顶尖人才专项（提前批）</td>
-                        <td class="jobs-col">大模型Agent工程、持续学习算法、AIGC安全、大模型后训练、金融AI</td>
-                        <td class="link-col">蚂蚁集团官网</td>
-                        <td>2026-07-18</td>
-                        <td>杭州、北京、上海、福建</td>
-                        <td>超级简历</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">部分信息来自第三方平台，建议官网核实</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">8</td>
-                        <td class="company-name">国家电网</td>
-                        <td class="company-type">央国企</td>
-                        <td>提前批/第一批</td>
-                        <td class="jobs-col">计算机科学与技术、软件工程、通信工程、自动化、电力系统及其自动化</td>
-                        <td class="link-col"><a href="https://zhaopin.sgcc.com.cn" target="_blank">https://zhaopin.sgcc.com.cn</a></td>
-                        <td>提前批：2026年7-9月；一批：预计11月中旬</td>
-                        <td>全国各省市</td>
-                        <td>中公教育、思格教育</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">时间为预测，以官方公告为准</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">9</td>
-                        <td class="company-name">中国移动</td>
-                        <td class="company-type">央国企</td>
-                        <td>技术岗提前批</td>
-                        <td class="jobs-col">软件开发、系统开发、网络技术、大数据开发、云计算、信息安全</td>
-                        <td class="link-col"><a href="https://www.iguopin.com" target="_blank">https://www.iguopin.com（国聘网）</a></td>
-                        <td>预计7月底开放</td>
-                        <td>全国各省市</td>
-                        <td>高顿教育、国聘网</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">时间为预测，以官方公告为准</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">10</td>
-                        <td class="company-name">中国联通</td>
-                        <td class="company-type">央国企</td>
-                        <td>技术岗提前批</td>
-                        <td class="jobs-col">软件开发、系统开发、网络技术、大数据、云计算</td>
-                        <td class="link-col"><a href="https://www.iguopin.com" target="_blank">https://www.iguopin.com（国聘网）</a></td>
-                        <td>预计7月底开放</td>
-                        <td>全国各省市</td>
-                        <td>高顿教育、国聘网</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">时间为预测，以官方公告为准</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">11</td>
-                        <td class="company-name">中国电信</td>
-                        <td class="company-type">央国企</td>
-                        <td>技术岗提前批</td>
-                        <td class="jobs-col">软件开发、系统开发、网络技术、大数据、云计算</td>
-                        <td class="link-col"><a href="https://www.iguopin.com" target="_blank">https://www.iguopin.com（国聘网）</a></td>
-                        <td>预计7月底开放</td>
-                        <td>全国各省市</td>
-                        <td>高顿教育、国聘网</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">时间为预测，以官方公告为准</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">12</td>
-                        <td class="company-name">中国航天科技集团</td>
-                        <td class="company-type">央国企</td>
-                        <td>提前批</td>
-                        <td class="jobs-col">计算机科学与技术、软件工程、人工智能、控制科学与工程、信息与通信工程、航天算法</td>
-                        <td class="link-col">各院所官网/国聘网</td>
-                        <td>预计8月发布</td>
-                        <td>北京、上海、西安、成都、武汉</td>
-                        <td>今日头条</td>
-                        <td><span class="credibility credibility-low">低</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">信息待核实，以各院所官方公告为准</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">13</td>
-                        <td class="company-name">中国航天科工集团</td>
-                        <td class="company-type">央国企</td>
-                        <td>提前批</td>
-                        <td class="jobs-col">计算机科学与技术、软件工程、人工智能、电子科学与技术、测控技术</td>
-                        <td class="link-col">各院所官网/国聘网</td>
-                        <td>预计8月发布</td>
-                        <td>北京、上海、西安、成都、武汉</td>
-                        <td>今日头条</td>
-                        <td><span class="credibility credibility-low">低</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">信息待核实，以各院所官方公告为准</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">14</td>
-                        <td class="company-name">中国石油（中石油）</td>
-                        <td class="company-type">央国企</td>
-                        <td>提前批/暑期定向招录</td>
-                        <td class="jobs-col">信息技术岗、软件开发、数据分析、网络安全、自动化</td>
-                        <td class="link-col">中石油招聘官网/国聘网</td>
-                        <td>预计8月发布</td>
-                        <td>全国各省市</td>
-                        <td>高顿教育</td>
-                        <td><span class="credibility credibility-low">低</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">信息待核实，以官方公告为准</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">15</td>
-                        <td class="company-name">中国石化（中石化）</td>
-                        <td class="company-type">央国企</td>
-                        <td>提前批/暑期定向招录</td>
-                        <td class="jobs-col">信息技术岗、软件开发、数据分析、网络安全</td>
-                        <td class="link-col">中石化招聘官网/国聘网</td>
-                        <td>预计8月发布</td>
-                        <td>全国各省市</td>
-                        <td>高顿教育</td>
-                        <td><span class="credibility credibility-low">低</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">信息待核实，以官方公告为准</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">16</td>
-                        <td class="company-name">中国储备粮管理集团（中储粮）</td>
-                        <td class="company-type">央国企</td>
-                        <td>2027届秋招批次</td>
-                        <td class="jobs-col">信息技术岗</td>
-                        <td class="link-col"><a href="https://sinograin2026.iguopin.com" target="_blank">https://sinograin2026.iguopin.com</a></td>
-                        <td>2026年6月30日（已截止，供参考）</td>
-                        <td>全国各省分公司</td>
-                        <td>国聘网</td>
-                        <td><span class="credibility credibility-high">高</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">国聘网官方信息</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">17</td>
-                        <td class="company-name">中兴通讯</td>
-                        <td class="company-type">通信科技/央国企</td>
-                        <td>2027届秋招</td>
-                        <td class="jobs-col">软件开发、人工智能算法、微电子、光电子、计算机科学与技术</td>
-                        <td class="link-col">中兴通讯招聘官网</td>
-                        <td>招满为止</td>
-                        <td>深圳、广州</td>
-                        <td>高校就业网</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">部分信息来自高校就业网</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">18</td>
-                        <td class="company-name">中国工商银行</td>
-                        <td class="company-type">金融科技/银行</td>
-                        <td>秋季校园招聘</td>
-                        <td class="jobs-col">信息科技岗、软件开发、数据分析、网络安全、金融科技岗</td>
-                        <td class="link-col">工行招聘官网</td>
-                        <td>预计9月5日-10月9日</td>
-                        <td>全国各省市</td>
-                        <td>新浪财经、搜狐网</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">时间为参考往年预测</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">19</td>
-                        <td class="company-name">中国农业银行</td>
-                        <td class="company-type">金融科技/银行</td>
-                        <td>秋季校园招聘</td>
-                        <td class="jobs-col">信息科技岗、软件开发、数据分析、网络安全</td>
-                        <td class="link-col">农行招聘官网</td>
-                        <td>预计9月5日-10月9日</td>
-                        <td>全国各省市</td>
-                        <td>新浪财经、搜狐网</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">时间为参考往年预测</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">20</td>
-                        <td class="company-name">中国银行</td>
-                        <td class="company-type">金融科技/银行</td>
-                        <td>秋季校园招聘</td>
-                        <td class="jobs-col">信息科技岗、软件开发、数据分析、金融科技</td>
-                        <td class="link-col">中行招聘官网</td>
-                        <td>预计9月5日-10月10日</td>
-                        <td>全国各省市</td>
-                        <td>新浪财经、搜狐网</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">时间为参考往年预测</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">21</td>
-                        <td class="company-name">中国建设银行</td>
-                        <td class="company-type">金融科技/银行</td>
-                        <td>秋季校园招聘</td>
-                        <td class="jobs-col">信息科技岗、软件开发、数据分析、网络安全</td>
-                        <td class="link-col">建行招聘官网</td>
-                        <td>预计9月9日-10月10日</td>
-                        <td>全国各省市</td>
-                        <td>新浪财经、搜狐网</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">时间为参考往年预测</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">22</td>
-                        <td class="company-name">大疆创新</td>
-                        <td class="company-type">智能制造/硬科技</td>
-                        <td>2027届校招</td>
-                        <td class="jobs-col">嵌入式开发、算法工程师、软件开发、智能硬件研发</td>
-                        <td class="link-col">大疆招聘官网</td>
-                        <td>待公布</td>
-                        <td>深圳</td>
-                        <td>官方微博/校招平台</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">部分信息来自社交媒体</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">23</td>
-                        <td class="company-name">科大讯飞</td>
-                        <td class="company-type">智能制造/硬科技</td>
-                        <td>2027届校招</td>
-                        <td class="jobs-col">语音算法、NLP算法、大模型研发、软件开发、测试开发</td>
-                        <td class="link-col">科大讯飞招聘官网</td>
-                        <td>待公布</td>
-                        <td>合肥、北京、上海、深圳</td>
-                        <td>力扣、高校就业网</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">部分信息来自高校就业网</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">24</td>
-                        <td class="company-name">TP-LINK</td>
-                        <td class="company-type">智能制造/硬科技</td>
-                        <td>提前批</td>
-                        <td class="jobs-col">嵌入式开发、网络协议开发、软件测试、硬件开发</td>
-                        <td class="link-col">TP-LINK招聘官网</td>
-                        <td>招满即止</td>
-                        <td>深圳、杭州</td>
-                        <td>今日头条</td>
-                        <td><span class="credibility credibility-low">低</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">信息待核实</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">25</td>
-                        <td class="company-name">长鑫存储</td>
-                        <td class="company-type">智能制造/硬科技</td>
-                        <td>提前批</td>
-                        <td class="jobs-col">芯片设计、验证工程师、软件开发、算法工程师</td>
-                        <td class="link-col">长鑫存储招聘官网</td>
-                        <td>招满即止</td>
-                        <td>合肥、上海、北京</td>
-                        <td>今日头条</td>
-                        <td><span class="credibility credibility-low">低</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">信息待核实</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;">26</td>
-                        <td class="company-name">长亭科技</td>
-                        <td class="company-type">网络安全/硬科技</td>
-                        <td>安全服务校招提前批</td>
-                        <td class="jobs-col">网络安全工程师、安全研究员、渗透测试</td>
-                        <td class="link-col">长亭科技招聘官网</td>
-                        <td>待公布</td>
-                        <td>北京、上海、杭州</td>
-                        <td>超级简历</td>
-                        <td><span class="credibility credibility-medium">中</span></td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="date-col">2026-07-01</td>
-                        <td class="remark-col">部分信息来自第三方平台</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="footer">
-            <p>📌 说明：</p>
-            <ul style="margin-left: 20px; margin-top: 8px;">
-                <li>本表为2027届秋招信息累计汇总，按「公司名称+招聘批次」去重</li>
-                <li>信息可信度分为三级：高（官方渠道）、中（第三方平台/高校）、低（待核实）</li>
-                <li>建议投递前务必到公司官方招聘网站核实最新信息</li>
-                <li>数据更新时间：2026-07-01</li>
-            </ul>
-        </div>
+<div class="container">
+    <h1>📋 2027 届秋招公司汇总</h1>
+    <p class="subtitle">最后更新：2026-07-02 11:28</p>
+
+    <div class="stats-bar">
+        <div class="stat-card total">总收录企业 <div class="num">36</div></div>
+        <div class="stat-card high">🟢 高可信度 <div class="num">35</div></div>
+        <div class="stat-card medium">🟡 中可信度 <div class="num">0</div></div>
+        <div class="stat-card low">🔴 低/待核实 <div class="num">1</div></div>
     </div>
+
+    <div class="legend">
+        <span class="legend-item">🟢 高可信度 — 官方渠道</span>
+        <span class="legend-item">🟡 中可信度 — 社区/第三方</span>
+        <span class="legend-item">🔴 低/待核实 — 非官方信息</span>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>公司名称</th>
+                    <th>公司类型</th>
+                    <th>招聘项目/批次</th>
+                    <th>计算机相关岗位</th>
+                    <th>招聘链接</th>
+                    <th>简历截止时间</th>
+                    <th>工作地点</th>
+                    <th>信息可信度</th>
+                    <th>备注</th>
+                    <th>首次收录</th>
+                    <th>最近更新</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr>
+            <td>京东</td>
+            <td>互联网大厂</td>
+            <td>TET管培生/技术人才计划/提前批</td>
+            <td>多模态大模型、时空AI智能体、深度学习、AI Infra、推荐广告、高性能计算、安全</td>
+            <td><a href="https://campus.jd.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>北京</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>字节跳动</td>
+            <td>互联网大厂</td>
+            <td>Seed 算法人才/校招/前沿技术人才培养计划</td>
+            <td>大模型算法、多模态算法、推荐系统开发、后端开发、前端开发、客户端开发、算法工程师、AI研发</td>
+            <td><a href="https://jobs.bytedance.com/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>招满即止</td>
+            <td>北京、上海、杭州、深圳、新加坡、旧金山</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>小红书</td>
+            <td>互联网大厂</td>
+            <td>正式批</td>
+            <td>搜索</td>
+            <td><a href="https://www.xiaohongshu.com/search_result?keyword=2027%E5%B1%8A%E7%A7%8B%E6%8B%9B" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td></td>
+            <td><span class="cred-低">🔴 低/待核实</span></td>
+            <td>社交媒体笔记，信息待核实</td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>快手</td>
+            <td>互联网大厂</td>
+            <td>快Star计划/提前批</td>
+            <td>多模态大模型、推荐系统、视频理解、AI基础设施、后端开发、前端开发</td>
+            <td><a href="https://campus.kuaishou.cn" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>北京、杭州、深圳</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>拼多多</td>
+            <td>互联网大厂</td>
+            <td>菁英计划/研发实习/提前批</td>
+            <td>大模型算法、AI Infra、服务端研发、Web前端、客户端研发、算法、网络安全</td>
+            <td><a href="https://careers.pddglobalhr.com/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>2026/8/31</td>
+            <td>上海</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>百度</td>
+            <td>互联网大厂</td>
+            <td>AIDU计划/提前批</td>
+            <td>大模型算法、多模态算法、智能体、自动驾驶、AI异构计算、推荐广告、后端开发、前端开发</td>
+            <td><a href="https://talent.baidu.com/jobs/list" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>北京、上海</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>网易</td>
+            <td>互联网大厂</td>
+            <td>提前批/正式批</td>
+            <td>算法、后端开发、前端开发、测试、AI、游戏研发</td>
+            <td><a href="https://campus.163.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>杭州、广州、北京</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>美团</td>
+            <td>互联网大厂</td>
+            <td>北斗计划/提前批</td>
+            <td>大模型算法、自动驾驶、无人机、推荐算法、后端开发、前端开发、数据开发、安全</td>
+            <td><a href="https://zhaopin.meituan.com/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>北京、上海、成都</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>腾讯</td>
+            <td>互联网大厂</td>
+            <td>青云计划/提前批</td>
+            <td>大模型/NLP、多模态/视觉/语音、智能体、强化学习、推荐系统、AI基础设施、系统与安全、AI数据工程</td>
+            <td><a href="https://join.qq.com/qingyun.html" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>深圳、北京、上海</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>蚂蚁集团</td>
+            <td>互联网大厂</td>
+            <td>蚂蚁星/提前批</td>
+            <td>大模型、AI工程、机器学习算法、安全、分布式系统、区块链、隐私计算</td>
+            <td><a href="https://talent.antgroup.com/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>杭州、北京、上海、深圳</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>阿里巴巴</td>
+            <td>互联网大厂</td>
+            <td>阿里星人才计划/提前批</td>
+            <td>多模态算法、AI Infra、大模型应用、产业AI、计算平台架构、芯片研发、后端开发、前端开发</td>
+            <td><a href="https://campus-talent.alibaba.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>杭州、北京、上海、深圳</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中国电信</td>
+            <td>央国企</td>
+            <td>秋季校园招聘/提前批</td>
+            <td>通信工程、系统开发、网络技术、数据分析、云计算</td>
+            <td><a href="https://www.iguopin.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>预计7月底开启</td>
+            <td>全国各省市</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中国移动</td>
+            <td>央国企</td>
+            <td>秋季校园招聘/提前批</td>
+            <td>通信工程、系统开发、网络技术、数据开发、云计算、信息安全</td>
+            <td><a href="https://www.iguopin.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>预计7月底开启</td>
+            <td>全国各省市</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中国联通</td>
+            <td>央国企</td>
+            <td>秋季校园招聘/提前批</td>
+            <td>通信工程、系统开发、网络技术、数据分析、云计算</td>
+            <td><a href="https://www.iguopin.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>预计7月底开启</td>
+            <td>全国各省市</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中国航天科工集团</td>
+            <td>央国企</td>
+            <td>提前批</td>
+            <td>计算机科学与技术、软件工程、人工智能、电子科学与技术、信息工程</td>
+            <td><a href="https://casic.zhiye.com/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>预计8月发布</td>
+            <td>北京、上海、成都、武汉、南京</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中国航天科技集团</td>
+            <td>央国企</td>
+            <td>提前批</td>
+            <td>计算机科学与技术、软件工程、人工智能、控制科学与工程、信息与通信工程、网络安全算法</td>
+            <td><a href="https://casc.zhiye.com/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>预计8月发布</td>
+            <td>北京、上海、成都、西安、武汉</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中石化</td>
+            <td>央国企</td>
+            <td>提前批/秋季第二批录取</td>
+            <td>信息化、软件工程、数据分析、信息安全</td>
+            <td><a href="https://job.sinopec.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>预计8月发布</td>
+            <td>全国各省市</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中石油</td>
+            <td>央国企</td>
+            <td>提前批/秋季第二批录取</td>
+            <td>信息化、软件工程、数据分析、信息安全、网络安全、自动化</td>
+            <td><a href="https://zhaopin.cnpc.com.cn" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>预计8月发布</td>
+            <td>全国各省市</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>国家电网</td>
+            <td>央国企</td>
+            <td>提前批/一批</td>
+            <td>计算机科学与技术、软件工程、通信工程、自动化、控制科学与工程、网络安全</td>
+            <td><a href="https://zhaopin.sgcc.com.cn" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>提前批预计2026年7-9月；一批预计11月中</td>
+            <td>全国各省市</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中国农业银行</td>
+            <td>金融科技/银行</td>
+            <td>秋季校园招聘</td>
+            <td>信息科技岗、软件开发、数据分析、信息安全</td>
+            <td><a href="https://career.abchina.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>预计9月5日-10月9日</td>
+            <td>全国各省市</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中国工商银行</td>
+            <td>金融科技/银行</td>
+            <td>秋季校园招聘</td>
+            <td>信息科技岗、软件开发、数据分析、信息安全、金融科技</td>
+            <td><a href="https://job.icbc.com.cn" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>预计9月5日-10月9日</td>
+            <td>全国各省市</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中国建设银行</td>
+            <td>金融科技/银行</td>
+            <td>秋季校园招聘</td>
+            <td>信息科技岗、软件开发、数据分析、信息安全</td>
+            <td><a href="https://job.ccb.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>预计9月初-10月中旬</td>
+            <td>全国各省市</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中国银行</td>
+            <td>金融科技/银行</td>
+            <td>秋季校园招聘</td>
+            <td>信息科技岗、软件开发、数据分析、信息安全、金融科技</td>
+            <td><a href="https://www.boc.cn/aboutboc/bi4/" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>预计9月初-10月中旬</td>
+            <td>全国各省市</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>TP-LINK</td>
+            <td>智能制造/硬科技</td>
+            <td>2027届校园招聘/提前批</td>
+            <td>软件开发、硬件开发、测试、算法、嵌入式</td>
+            <td><a href="https://hr.tp-link.com.cn/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>深圳、杭州、北京</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中兴通讯</td>
+            <td>智能制造/硬科技</td>
+            <td>2027届校园招聘</td>
+            <td>通信算法、软件开发、AI、嵌入式、测试、芯片设计</td>
+            <td><a href="https://job.zte.com.cn/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>招满即止</td>
+            <td>深圳、南京、西安、上海</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>大疆</td>
+            <td>智能制造/硬科技</td>
+            <td>2027届校园招聘/提前批</td>
+            <td>算法、嵌入式开发、计算机视觉、SLAM、后端开发、前端开发、测试</td>
+            <td><a href="https://we.dji.com/zh-CN/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>深圳、北京、上海</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>科大讯飞</td>
+            <td>智能制造/硬科技</td>
+            <td>2027届校园招聘/提前批</td>
+            <td>大模型算法、自然语言处理、语音识别、AI开发、后端开发</td>
+            <td><a href="https://campus.iflytek.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>合肥、北京、上海、深圳</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>宁德时代</td>
+            <td>新能源/车企</td>
+            <td>2027届校园招聘</td>
+            <td>AI算法、大数据、软件开发、智能制造、测试</td>
+            <td><a href="https://catl.zhaopin.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>宁德、上海、厦门</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>小鹏汽车</td>
+            <td>新能源/车企</td>
+            <td>2027届校园招聘/提前批</td>
+            <td>自动驾驶、算法、软件开发、智能座舱、AI大模型</td>
+            <td><a href="https://campus.xiaopeng.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>广州、深圳、北京、上海</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>比亚迪</td>
+            <td>新能源/车企</td>
+            <td>2027届校园招聘</td>
+            <td>算法、自动驾驶、软件开发、嵌入式、电池AI、智能座舱、测试</td>
+            <td><a href="https://job.byd.com" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>深圳、西安、长沙、上海</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>理想汽车</td>
+            <td>新能源/车企</td>
+            <td>2027届校园招聘</td>
+            <td>自动驾驶、算法、软件开发、智能座舱、AI</td>
+            <td><a href="https://www.lixiang.com/careers/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>北京、上海、常州</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>蔚来</td>
+            <td>新能源/车企</td>
+            <td>2027届校园招聘/提前批</td>
+            <td>自动驾驶、算法、软件开发、智能座舱、车联网、测试</td>
+            <td><a href="https://nio.jobs.feishu.cn/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>上海、北京、合肥</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>中芯国际</td>
+            <td>芯片/硬科技</td>
+            <td>2027届校园招聘</td>
+            <td>半导体工艺、EDA开发、智能制造、IT、数据分析</td>
+            <td><a href="https://smics.zhiye.com/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>上海、北京、天津、深圳</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>商汤科技</td>
+            <td>芯片/硬科技</td>
+            <td>2027届校园招聘/提前批</td>
+            <td>计算机视觉、大模型算法、AI推理优化、AI Infra、后端开发</td>
+            <td><a href="https://hr.sensetime.com/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>北京、上海、深圳、杭州、香港</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>地平线</td>
+            <td>芯片/硬科技</td>
+            <td>2027届校园招聘/提前批</td>
+            <td>自动驾驶算法、计算机视觉、AI芯片、嵌入式开发、工具链开发</td>
+            <td><a href="https://careers.horizon.ai/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>北京、上海、南京、杭州</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>        <tr>
+            <td>寒武纪</td>
+            <td>芯片/硬科技</td>
+            <td>2027届校园招聘</td>
+            <td>AI芯片设计、编译器开发、AI算法、驱动开发、工具链</td>
+            <td><a href="https://cambricon.zhiye.com/campus" target="_blank" rel="noopener">🔗 投递链接</a></td>
+            <td>待更新</td>
+            <td>北京、上海、深圳、合肥</td>
+            <td><span class="cred-高">🟢 高</span></td>
+            <td></td>
+            <td>2026/07/02</td>
+            <td>2026/07/02</td>
+        </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        <p>⚠️ 免责声明：网络整理信息仅供参考，投递前请以企业官方渠道核实为准</p>
+        <p>2027 届秋招信息汇总 · 自动更新 · 2026-07-02</p>
+    </div>
+</div>
 </body>
 </html>
