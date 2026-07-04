@@ -1234,7 +1234,7 @@ def main():
 
     # 1. 检查时间范围（9:00-23:00）
     hour = now.hour
-    if False:  # bypass time check for manual run
+    if hour < 9 or hour >= 23:
         print(f"[SKIP] 当前时间 {hour}:00 不在执行时段 (9:00-23:00)，跳过")
         return
 
